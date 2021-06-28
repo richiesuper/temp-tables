@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int kelvBase(float a, float b, float c) {
+void kelvBase(float a, float b, float c) {
     float kelv, fahr, celc, ream;
     float lowerLim, upperLim, step;
 
@@ -18,10 +18,10 @@ int kelvBase(float a, float b, float c) {
         printf("\t%f *K\t%f *F\t%f *C\t%f *R\n", kelv, fahr, celc, ream);
         printf("----------------------------------------------------------------------------\n");
     }
-    return 0;
+    exit(0);
 }
 
-int fahrBase(float a, float b, float c) {
+void fahrBase(float a, float b, float c) {
     float fahr, kelv, celc, ream;
     float lowerLim, upperLim, step;
 
@@ -38,10 +38,10 @@ int fahrBase(float a, float b, float c) {
         printf("\t%f *F\t%f *K\t%f *C\t%f *R\n", fahr, kelv, celc, ream);
         printf("----------------------------------------------------------------------------\n");
     }
-    return 0;
+    exit(0);
 }
 
-int celcBase(float a, float b, float c) {
+void celcBase(float a, float b, float c) {
     float celc, fahr, kelv, ream;
     float lowerLim, upperLim, step;
 
@@ -58,10 +58,10 @@ int celcBase(float a, float b, float c) {
         printf("\t%f *C\t%f *F\t%f *K\t%f *R\n", celc, fahr, kelv, ream);
         printf("----------------------------------------------------------------------------\n");
     }
-    return 0;
+    exit(0);
 }
 
-int reamBase(float a, float b, float c) {
+void reamBase(float a, float b, float c) {
     float ream, fahr, celc, kelv;
     float lowerLim, upperLim, step;
 
@@ -78,7 +78,7 @@ int reamBase(float a, float b, float c) {
         printf("\t%f *R\t%f *F\t%f *C\t%f *K\n", ream, fahr, celc, kelv);
         printf("----------------------------------------------------------------------------\n");
     }
-    return 0;
+    exit(0);
 }
 
 int main() {
