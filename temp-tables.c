@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int kelvBase(float a, float b, float c) {
     float kelv, fahr, celc, ream;
