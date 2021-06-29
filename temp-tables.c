@@ -32,9 +32,9 @@ void fahrBase(float a, float b, float c) {
     printf("Richie's Temperature Units Table <*F> <*K> <*C> <*R>\n");
 
     for(fahr = lowerLim; fahr <= upperLim; fahr += step) {
-        kelv = (5 / 9) * (fahr - 32) + 273.15;
-        celc = (5 / 9) * (fahr - 32); /* I know that I can use the value of kelv - 273.15 but this direct approach looks cooler to me XD */
-        ream = (4 / 9) * (kelv - 273.15);
+        kelv = 5.0 / 9.0 * (fahr - 32) + 273.15;
+        celc = 5.0 / 9.0 * (fahr - 32);
+        ream = 4.0 / 9.0 * (fahr - 32);
         printf("\t%f *F\t%f *K\t%f *C\t%f *R\n", fahr, kelv, celc, ream);
         printf("----------------------------------------------------------------------------\n");
     }
@@ -72,16 +72,16 @@ void reamBase(float a, float b, float c) {
     printf("Richie's Temperature Units Table <*R> <*F> <*C> <*K>\n");
 
     for(ream = lowerLim; ream <= upperLim; ream += step) {
-        fahr = 9 / 4 * ream + 32;
-        celc = 5 / 4 * ream;
-        kelv = 5 / 4 * ream + 273.15;
+        fahr = 2.25 * ream + 32;
+        celc = 1.25 * ream;
+        kelv = 1.25 * ream + 273.15;
         printf("\t%f *R\t%f *F\t%f *C\t%f *K\n", ream, fahr, celc, kelv);
         printf("----------------------------------------------------------------------------\n");
     }
     exit(0);
 }
 
-int main() {
+int main(void) {
     char baseUnit;
     float lL, uL, st;
 
