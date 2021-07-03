@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void kelvBase(float a, float b, float c) {
     float kelv, fahr, celc, ream;
@@ -82,30 +83,38 @@ void reamBase(float a, float b, float c) {
 }
 
 int main(void) {
-    char baseUnit;
+    char baseUnit[16];
+    char tempStore[4][16];
     float lL, uL, st;
 
     printf("Hello there, user! Richie's Temperature Units Table is here to help you out!\n");
 
     printf("Now, enter your base unit choice (k = Kelvin | f = Fahrenheit | c = Celcius | r = Reaumur): \n");
-    scanf("%c", &baseUnit);
+    fgets(baseUnit, 16, stdin);
+    baseUnit[strcspn(baseUnit, "\n")] = 0;
 
     printf("Enter your desired lower limit for the base temperature unit (ints or floats): \n");
-    scanf("%f", &lL);
+    fgets(tempStore[1], 16, stdin);
+    tempStore[1][strcspn(tempStore[1], "\n")] = 0;
+    lL = atof(tempStore[1]);
 
     printf("Enter your desired upper limit for the base temperature unit (ints or floats): \n");
-    scanf("%f", &uL);
+    fgets(tempStore[2], 16, stdin);
+    tempStore[2][strcspn(tempStore[2], "\n")] = 0;
+    uL = atof(tempStore[2]);
 
     printf("Enter your desired step for the base temperature unit (ints or floats): \n");
-    scanf("%f", &st);
+    fgets(tempStore[3], 16, stdin);
+    tempStore[3][strcspn(tempStore[3], "\n")] = 0;
+    st = atof(tempStore[3]);
 
-    if(baseUnit == 'k' || baseUnit == 'K') {
+    if(*baseUnit == 'k' || *baseUnit == 'K') {
         kelvBase(lL, uL, st);
-    } else if(baseUnit == 'f' || baseUnit == 'F') {
+    } else if(*baseUnit == 'f' || *baseUnit == 'F') {
         fahrBase(lL, uL, st);
-    } else if(baseUnit == 'c' || baseUnit == 'C') {
+    } else if(*baseUnit == 'c' || *baseUnit == 'C') {
         celcBase(lL, uL, st);
-    } else if(baseUnit == 'r' || baseUnit == 'R') {
+    } else if(*baseUnit == 'r' || *baseUnit == 'R') {
         reamBase(lL, uL, st);
     } else {
         printf("Base unit value not recognized, please pay more attention to the prompt.\nTerminating program...\n");
